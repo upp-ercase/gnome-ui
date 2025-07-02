@@ -1,5 +1,4 @@
 'use client';
-import NextImage from 'next/image';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { MediaAspectRatioType, MediaType } from '../../types';
@@ -39,13 +38,16 @@ export const Image: React.FC<{
   });
 
   if (!data) {
-    return renderFallbackImage({
-      aspectRatioClass,
-      zoomInOverHover,
-      fallbackSrc,
-      alt,
-      priority,
-    });
+    return (
+      <img
+        className={classes}
+        src={fallbackSrc}
+        width={500}
+        height={500}
+        alt={alt ?? 'No image'}
+        fetchPriority={priority ? 'high' : 'auto'}
+      />
+    )
   }
 
   const { width, height, title } = data;
@@ -64,14 +66,14 @@ export const Image: React.FC<{
   }
 
   return (
-    <NextImage
+    <img
       className={classes}
       src={mediaSrc}
       alt={alt ?? title ?? ''}
       width={width}
       height={height}
-      priority={priority}
       onError={handleError}
+      fetchPriority={priority ? 'high' : 'auto'}
     />
   );
 };
@@ -114,32 +116,6 @@ const getClassNames = ({
     },
     className,
   );
-
-const renderFallbackImage = ({
-  aspectRatioClass,
-  zoomInOverHover,
-  fallbackSrc,
-  alt,
-  priority,
-}: {
-  aspectRatioClass: string;
-  zoomInOverHover: boolean;
-  fallbackSrc: string;
-  alt?: string;
-  priority: boolean;
-}) => (
-  <NextImage
-    className={classNames('object-cover w-full h-full', aspectRatioClass, {
-      'group-hover:scale-110 hover:scale-110 transition-all duration-500':
-        zoomInOverHover,
-    })}
-    src={fallbackSrc}
-    width={500}
-    height={500}
-    alt={alt ?? 'No image'}
-    priority={priority}
-  />
-);
 
 const shouldRenderImgTag = ({
   width,
