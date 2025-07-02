@@ -1,0 +1,58 @@
+{
+  "name": "gnome-ui",
+  "version": "0.1.0",
+  "description": "Reusable React components from NovaJAM, styled with Tailwind CSS.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc --declaration --emitDeclarationOnly false",
+    "test": "echo 'Add tests!'",
+    "prepare": "tsc",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "classnames": "^2.3.2"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "tailwindcss": ">=3.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minhwpm/gnome-ui.git"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "tailwind",
+    "novajam"
+  ],
+  "devDependencies": {
+    "@storybook/addon-docs": "^9.0.13",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-onboarding": "^9.0.13",
+    "@storybook/react": "^9.0.13",
+    "@storybook/react-vite": "^9.0.13",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/storybook__react": "^5.2.1",
+    "autoprefixer": "^10.4.21",
+    "eslint-plugin-storybook": "^9.0.13",
+    "postcss": "^8.5.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "storybook": "^9.0.13",
+    "tailwindcss": "^4.1.11",
+    "vite": "^7.0.0"
+  }
+}
