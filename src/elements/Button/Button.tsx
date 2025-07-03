@@ -1,10 +1,9 @@
 import classNames from 'classnames';
-import Link from 'next/link';
 import { Image } from '../../elements/Image/Image';
 import { ButtonType } from '../../types';
 import { GoArrowRight } from 'react-icons/go';
 
-interface ButtonProps {
+export const Button: React.FC<{
   data: ButtonType;
   className?: string;
   children?: React.ReactNode;
@@ -13,9 +12,7 @@ interface ButtonProps {
   type?: 'submit' | 'button' | 'reset';
   disabled?: boolean;
   fullWidth?: boolean;
-}
-
-export const Button: React.FC<ButtonProps> = ({
+}> = ({
   data,
   className,
   children,
@@ -121,13 +118,13 @@ export const Button: React.FC<ButtonProps> = ({
   };
   const renderButton = () =>
     href ? (
-      <Link
+      <a
         className={classNames(getVariantClasses())}
         href={href}
         target={openNewTab ? '_blank' : '_self'}
       >
         {renderButtonContent()}
-      </Link>
+      </a>
     ) : (
       <button
         type={type}
