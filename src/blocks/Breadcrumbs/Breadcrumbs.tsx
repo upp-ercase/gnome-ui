@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export const Breadcrumbs: React.FC<{
   paths: Array<{ label: string; href: string }>;
 }> = ({ paths }) => {
@@ -13,12 +11,12 @@ export const Breadcrumbs: React.FC<{
                 /
               </span>
             )}
-            <Link
+            <a
               href={path.href}
               className="text-xs uppercase tracking-wider text-primary-600 dark:text-primary-400 font-semibold hover:underline"
             >
               {path.label}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>
