@@ -1,3 +1,5 @@
+import "./styles/globals.css"
+
 export { Button } from './elements/Button/Button';
 export { ButtonGroup } from './elements/ButtonGroup/ButtonGroup';
 export { Body } from './elements/Body/Body';
