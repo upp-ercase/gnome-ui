@@ -1,4 +1,4 @@
-import "./styles/globals.css"
+import './styles/globals.css';
 
 export { Button } from './elements/Button/Button';
 export { ButtonGroup } from './elements/ButtonGroup/ButtonGroup';
@@ -53,4 +53,4 @@ export { SectionMapping } from './sections/SectionMapping/SectionMapping';
 export { SmartSection } from './sections/SmartSection/SmartSection';
 
 export * from './types';
-export * from './utils'; 
+export * from './utils';

@@ -4,7 +4,7 @@ import { PricingPlanType } from '../../types';
 import { MarkdownRenderer } from '../../elements/MarkdownRenderer/MarkdownRenderer';
 import { IoCheckmarkSharp } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
-import { usePricingOption } from '@/components/providers/PricingOptionProvider/PricingOptionProvider';
+import { usePricingOption } from '../../providers/PricingOptionProvider/PricingOptionProvider';
 
 const PricingBadge: React.FC<{ badge?: string }> = ({ badge }) => {
   if (!badge) return null;

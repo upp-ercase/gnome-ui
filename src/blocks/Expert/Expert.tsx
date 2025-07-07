@@ -79,11 +79,13 @@ export const Expert: React.FC<{
             )}
           >
             {specialization.map((item, index) => (
-              <span key={index} className="uppercase text-xs">{item}{index < specialization.length - 1 && ","}</span>
+              <span key={index} className="uppercase text-xs">
+                {item}
+                {index < specialization.length - 1 && ','}
+              </span>
             ))}
           </div>
         )}
-        
       </div>
     </div>
   );

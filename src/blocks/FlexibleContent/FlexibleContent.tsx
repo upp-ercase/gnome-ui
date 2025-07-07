@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import Link from 'next/link';
 import { FlexibleContentType } from '../../types';
 import { ButtonGroup } from '../../elements/ButtonGroup/ButtonGroup';
 import { MarkdownRenderer } from '../../elements/MarkdownRenderer/MarkdownRenderer';
@@ -118,9 +117,9 @@ export const FlexibleContent: React.FC<{ data: FlexibleContentType }> = ({
   );
 
   return redirectUrl ? (
-    <Link href={redirectUrl} className="hover:pointer group/flexible-box">
+    <a href={redirectUrl} className="hover:pointer group/flexible-box">
       {content}
-    </Link>
+    </a>
   ) : (
     content
   );

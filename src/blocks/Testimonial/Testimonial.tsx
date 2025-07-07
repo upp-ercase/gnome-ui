@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { TestimonialType } from '../../types';
-import { MediaItem } from '../../elements/MediaItem/MediaItem';
+import { Image } from '../../elements/Image/Image';
 import { MarkdownRenderer } from '../../elements/MarkdownRenderer/MarkdownRenderer';
 import { AiFillStar } from 'react-icons/ai';
 
@@ -25,7 +25,11 @@ export const Testimonial: React.FC<{
     >
       {authorImage && (
         <div className={classNames('mb-2')}>
-          <MediaItem data={authorImage} rounded="full" />
+          <Image
+            data={authorImage}
+            rounded="full"
+            dimensionBase={layout === 'vertical' ? 'height' : 'width'}
+          />
         </div>
       )}
       <div

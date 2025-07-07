@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { StatisticsType } from '../../types';
-import { getTextColorClass, getAlignmentClass } from '@/lib/utils';
+import { getTextColorClass, getAlignmentClass } from '../../utils';
 import { MarkdownRenderer } from '../../elements/MarkdownRenderer/MarkdownRenderer';
 
 export const Statistics: React.FC<{

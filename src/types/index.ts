@@ -1,11 +1,11 @@
 export type MediaType = {
-  id: string;
+  id?: string;
   url: string;
   title: string;
   description: string | null;
   width: number;
   height: number;
-  contentType: string;
+  contentType?: string;
 };
 
 export type AlignmentType = 'start' | 'center' | 'end';
@@ -135,15 +135,15 @@ export type GetBlogsOptions = {
 export const BLOG_PAGE_SIZE = 18;
 
 export type ExpertType = {
-  id: string;
+  id?: string;
   name: string;
   profilePicture: MediaType | null;
   role: string | null;
-  description: string | null;
-  specialization: Array<string> | null;
-  organization: string | null;
-  alignment: AlignmentType;
-  contentType: 'expert';
+  description?: string | null;
+  specialization?: Array<string> | null;
+  organization?: string | null;
+  alignment?: AlignmentType;
+  contentType?: 'expert';
 };
 
 export type MediaAspectRatioType =
@@ -215,39 +215,39 @@ export type SmartSectionType = {
 };
 
 export type StatisticsType = {
-  id: string;
+  id?: string;
   keyNumber: string;
   description: string;
-  alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical' | null;
-  keyNumberColor: string;
-  contentType: 'statistics';
+  alignment?: AlignmentType;
+  layout?: 'horizontal' | 'vertical' | null;
+  keyNumberColor?: string;
+  contentType?: 'statistics';
 };
 
 export type TestimonialType = {
-  id: string;
+  id?: string;
   content: string | null;
   authorImage: MediaType | null;
   authorName: string | null;
   authorTitle: string | null;
-  rating: 0 | 1 | 2 | 3 | 4 | 5 | null;
-  alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical' | null;
-  fontSize: 'base' | 'lg' | 'xl';
-  contentType: 'testimonial';
+  rating?: 0 | 1 | 2 | 3 | 4 | 5 | null;
+  alignment?: AlignmentType;
+  layout?: 'horizontal' | 'vertical' | null;
+  fontSize?: 'base' | 'lg' | 'xl';
+  contentType?: 'testimonial';
 };
 
 export type FlexibleContentType = {
-  id: string;
+  id?: string;
   eyebrow: string | null;
   title: string | null;
   body: string | null;
   buttons: Array<ButtonType>;
-  redirectUrl: string | null;
+  redirectUrl?: string | null;
   media: Array<MediaType>;
   alignment: AlignmentType;
-  layout: 'horizontal' | 'vertical' | null;
-  contentType: 'flexiblecontent';
+  layout?: 'horizontal' | 'vertical' | null;
+  contentType?: 'flexiblecontent';
 };
 
 export type PricingOptionType = {
@@ -257,19 +257,17 @@ export type PricingOptionType = {
 };
 
 export type PricingPlanType = {
-  id: string;
+  id?: string;
   planName: string;
-  pricing: string;
-  pricingSuffix: string;
   pricingOptions: Array<PricingOptionType>;
-  badge: string;
-  featured: boolean;
+  badge: string | null;
+  featured?: boolean;
   description: string | null;
   features: Array<string>;
   planLimitations: Array<string>;
   cta: ButtonType | null;
-  alignment: AlignmentType;
-  contentType: 'pricingplan';
+  alignment?: AlignmentType;
+  contentType?: 'pricingplan';
 };
 
 export type QAType = {

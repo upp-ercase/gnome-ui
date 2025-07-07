@@ -15,7 +15,6 @@ export default meta;
 
 type Story = StoryObj<typeof Expert>;
 
-
 const mockProfilePicture = {
   id: '1',
   url: 'https://randomuser.me/api/portraits/men/32.jpg',
@@ -27,7 +26,6 @@ const mockProfilePicture = {
 };
 
 const baseExpert: ExpertType = {
-  id: 'author-1',
   name: 'John Doe',
   profilePicture: mockProfilePicture,
   role: 'Senior Writer',
@@ -38,8 +36,44 @@ const baseExpert: ExpertType = {
   contentType: 'expert',
 };
 
-export const Default: Story = {
+export const Start: Story = {
   args: {
-    data: baseExpert
-  }
-}
+    data: {
+      name: 'John Doe',
+      profilePicture: mockProfilePicture,
+      role: 'Senior Writer',
+      description: 'John is a senior writer with 10 years of experience.',
+      specialization: ['Technology', 'Science'],
+      organization: 'Webbie Media',
+      alignment: 'start',
+    },
+  },
+};
+
+export const Center: Story = {
+  args: {
+    data: {
+      name: 'John Doe',
+      profilePicture: mockProfilePicture,
+      role: 'Senior Writer',
+      description: 'John is a senior writer with 10 years of experience.',
+      specialization: ['Technology', 'Science'],
+      organization: 'Webbie Media',
+      alignment: 'center',
+    },
+  },
+};
+
+export const End: Story = {
+  args: {
+    data: {
+      name: 'John Doe',
+      profilePicture: mockProfilePicture,
+      role: 'Senior Writer',
+      description: 'John is a senior writer with 10 years of experience.',
+      specialization: ['Technology', 'Science'],
+      organization: 'Webbie Media',
+      alignment: 'end',
+    },
+  },
+};

@@ -47,7 +47,7 @@ export const Image: React.FC<{
         alt={alt ?? 'No image'}
         fetchPriority={priority ? 'high' : 'auto'}
       />
-    )
+    );
   }
 
   const { width, height, title } = data;
@@ -106,13 +106,13 @@ const getClassNames = ({
     'not-prose',
     aspectRatioClass,
     {
-      'w-full': dimensionBase === 'width' && width && width >= 200,
-      'h-full': dimensionBase === 'height' && width && width >= 200,
-      'object-cover': width && width >= 200,
-      'object-contain': width && width < 200,
+      'w-full': dimensionBase === 'width' && width && width >= 100,
+      'h-full': dimensionBase === 'height' && width && width >= 100,
+      'object-cover': width && width >= 100,
+      'object-contain': width && width < 100,
       'group-hover:scale-110 hover:scale-110 transition-all duration-500':
-        width && width >= 200 && zoomInOverHover,
-      [`rounded-${rounded}`]: width && width >= 200,
+        width && width >= 100 && zoomInOverHover,
+      [`rounded-${rounded}`]: width && width >= 100,
     },
     className,
   );
