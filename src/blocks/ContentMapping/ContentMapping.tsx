@@ -1,12 +1,12 @@
 import classNames from 'classnames';
-import { Expert } from '@/components/blocks/Expert/Expert';
-import { Statistics } from '@/components/blocks/Statistics/Statistics';
-import { FlexibleContent } from '@/components/blocks/FlexibleContent/FlexibleContent';
-import { PricingPlan } from '@/components/blocks/PricingPlan/PricingPlan';
-import { Testimonial } from '@/components/blocks/Testimonial/Testimonial';
-import { QnA } from '@/components/blocks/QnA/QnA';
+import { Expert } from '../Expert/Expert';
+import { Statistics } from '../Statistics/Statistics';
+import { FlexibleContent } from '../FlexibleContent/FlexibleContent';
+import { PricingPlan } from '../PricingPlan/PricingPlan';
+import { Testimonial } from '../Testimonial/Testimonial';
+import { QnA } from '../QnA/QnA';
 import { BlockType } from '../../types';
-import { useIntersecting } from '@/lib/hooks';
+import { useIntersecting } from '../../hooks';
 
 const BlockComponent: React.FC<{ data: BlockType }> = ({ data }) => {
   switch (data.contentType) {

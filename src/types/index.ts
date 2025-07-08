@@ -31,13 +31,13 @@ export type ButtonType = {
 };
 
 export type LinkType = {
-  id: string;
+  id?: string;
   label: string;
   href: string;
-  description: string;
-  icon: MediaType | null;
+  description?: string;
+  icon?: MediaType | null;
   openNewTab: boolean;
-  contentType: 'link';
+  contentType?: 'link';
 };
 
 export interface SubmenuType {
@@ -271,11 +271,11 @@ export type PricingPlanType = {
 };
 
 export type QAType = {
-  id: string;
+  id?: string;
   title: string;
   body: string;
   isCollapsed: boolean;
-  contentType: 'qa';
+  contentType?: 'qa';
 };
 
 export type BlockType =

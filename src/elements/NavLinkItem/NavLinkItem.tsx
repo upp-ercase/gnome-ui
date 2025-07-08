@@ -1,8 +1,6 @@
-'use client';
 import classNames from 'classnames';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '../../hooks/usePathname';
 
 export const NavLinkItem = ({
   href,
@@ -20,7 +18,7 @@ export const NavLinkItem = ({
 
   return (
     <NavigationMenu.Link asChild>
-      <Link
+      <a
         href={href}
         onClick={onClick}
         className={classNames(
@@ -34,7 +32,7 @@ export const NavLinkItem = ({
         aria-current={isCurrentPage ? 'page' : undefined}
       >
         {children}
-      </Link>
+      </a>
     </NavigationMenu.Link>
   );
 };

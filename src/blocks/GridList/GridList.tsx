@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { ContentMapping } from '@/components/blocks/ContentMapping/ContentMapping';
+import { ContentMapping } from '../ContentMapping/ContentMapping';
 import { BlockType, ContentListType, GapType } from '../../types';
-import { getSpacingClasses } from '@/lib/utils';
+import { getSpacingClasses } from '../../utils';
 
 export const GridList: React.FC<{
   contentItems: Array<BlockType>;

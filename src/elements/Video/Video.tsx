@@ -15,10 +15,10 @@ export const Video: React.FC<{
   className?: string;
 }> = ({
   data,
-  aspectRatio,
-  dimensionBase,
-  videoAutoplay,
-  videoControls,
+  aspectRatio = 'auto',
+  dimensionBase = 'width',
+  videoAutoplay = false,
+  videoControls = true,
   zoomInOnHover = false,
   fallbackSrc = '/fallback.png',
   className,
@@ -71,7 +71,7 @@ export const Video: React.FC<{
         )}
         Your browser does not support the video tag.
       </video>
-      {!videoStarted && videoControls && (
+      {!videoStarted && videoControls && !videoAutoplay && (
         <div className="absolute z-10 bottom-0 right-0 w-full h-full bg-slate-600/50 flex justify-center items-center transition-opacity duration-300 ease-linear group-hover:opacity-100">
           <button
             className="w-20 h-20 flex justify-center items-center bg-slate-100 rounded-full"
