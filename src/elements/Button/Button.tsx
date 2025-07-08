@@ -1,38 +1,41 @@
 import classNames from 'classnames';
 import { Image } from '../../elements/Image/Image';
-import { ButtonType } from '../../types';
+import { MediaType, ButtonVariant } from '../../types';
 import { GoArrowRight } from 'react-icons/go';
 
 export const Button: React.FC<{
-  data: ButtonType;
+  label: string;
+  href?: string | null;
+  eyebrow?: string | null;
+  variant?: ButtonVariant;
+  openNewTab?: boolean;
+  withArrow?: boolean;
+  icon?: MediaType | null;
+  disclaimer?: string | null;
   className?: string;
   children?: React.ReactNode;
-  onClick?: () => void;
   size?: 'sm' | 'base' | 'lg';
   type?: 'submit' | 'button' | 'reset';
   disabled?: boolean;
   fullWidth?: boolean;
+  onClick?: () => void;
 }> = ({
-  data,
+  label,
+  href,
+  eyebrow,
+  variant = 'primary',
+  openNewTab = false,
+  withArrow = false,
+  icon,
+  disclaimer,
   className,
   children,
-  onClick,
   size = 'lg',
   type,
   disabled,
   fullWidth,
+  onClick,
 }) => {
-  const {
-    label,
-    href,
-    eyebrow,
-    variant = 'primary',
-    withArrow = false,
-    openNewTab = false,
-    icon,
-    disclaimer,
-  } = data;
-
   const renderIcon = () =>
     icon && (
       <Image
@@ -71,7 +74,8 @@ export const Button: React.FC<{
       {children || (
         <span
           className={classNames({
-            'underline-hover-effect': variant === 'link',
+            'group-hover/btn:before:w-full underline-hover-effect':
+              variant === 'link',
           })}
         >
           {eyebrow && (
