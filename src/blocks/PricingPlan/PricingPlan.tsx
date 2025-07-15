@@ -5,12 +5,12 @@ import { MarkdownRenderer } from '../../elements/MarkdownRenderer/MarkdownRender
 import { IoCheckmarkSharp } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
 import { usePricingOption } from '../../providers/PricingOptionProvider/PricingOptionProvider';
+import { getCurrencySymbol } from '../../utils/currency';
 
 const PricingBadge: React.FC<{ badge?: string }> = ({ badge }) => {
   if (!badge) return null;
-
   return (
-    <div className="px-2 py-1 rounded-theme text-primary-600 text-xs font-medium tracking-wider bg-primary-100 dark:text-primary-200 dark:bg-primary-600/60">
+    <div className="px-2 py-1 rounded-theme text-xs font-medium tracking-wider text-primary-600 bg-primary-100 dark:text-primary-100 dark:bg-primary-600">
       {badge}
     </div>
   );
@@ -28,10 +28,23 @@ const PricingOptions: React.FC<{
           className={classNames({ hidden: billingCycle !== item.billingCycle })}
         >
           <div className="font-bold font-heading text-lg-heading dark:text-slate-100">
-            {item.price}
+            <span
+              className={classNames({
+                'opacity-30 line-through': item.salePrice,
+              })}
+            >
+              {getCurrencySymbol(item.currency)}
+              {item.standardPrice}
+            </span>
+            {item.salePrice && (
+              <span className="">
+                {getCurrencySymbol(item.currency)}
+                {item.salePrice}
+              </span>
+            )}
           </div>
           {item.priceSuffix && (
-            <div className="text-sm tracking-wide text-slate-400">
+            <div className="-mt-1 text-sm tracking-wide text-slate-400">
               {item.priceSuffix}
             </div>
           )}
@@ -48,11 +61,11 @@ const PricingFeatures: React.FC<{
   if (!features?.length && !planLimitations?.length) return null;
 
   return (
-    <ul className="my-2 lg:my-4 pl-8 flex flex-col gap-2 prose dark:prose-invert">
+    <ul className="my-2 lg:my-4 pl-8 flex flex-col gap-1 prose dark:prose-invert">
       {features?.map((feature, idx) => (
         <li key={idx} className="relative list-none">
           <IoCheckmarkSharp
-            className="absolute -left-8 text-primary-600 dark:text-primary-400"
+            className="absolute -left-8 text-green-600 dark:text-green-400"
             size={25}
           />
           {feature}
@@ -61,7 +74,7 @@ const PricingFeatures: React.FC<{
       {planLimitations?.map((limitation, idx) => (
         <li key={idx} className="relative list-none opacity-30">
           <RxCross2
-            className="absolute -left-8 text-primary-600 dark:text-primary-400"
+            className="absolute -left-8 text-green-600 dark:text-green-400"
             size={25}
           />
           {limitation}
@@ -89,9 +102,12 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
   return (
     <div
       className={classNames(
-        'rounded-theme bg-white dark:bg-slate-800/80 dark:backdrop-blur-xl border border-slate-100 dark:border-slate-800/80 inverse:border-slate-800/80',
+        'rounded-theme bg-white dark:bg-slate-800/80 dark:backdrop-blur-xl border',
         {
-          'mx-2 shadow-radiant': featured,
+          'border-slate-100 dark:border-slate-800/80 inverse:border-slate-800/80':
+            !featured,
+          'border-primary-600 dark:border-primary-500 inverse:border-primary-500':
+            featured,
         },
       )}
     >
@@ -112,30 +128,38 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
             'justify-end': alignment === 'end',
           })}
         >
-          <h4 className="text-base lg:text-lg font-semibold text-primary-600 dark:text-primary-200">
+          <h4 className="text-base lg:text-lg font-semibold text-primary-600 dark:text-primary-500">
             {planName}
           </h4>
-          <PricingBadge badge={badge} />
+          {badge && <PricingBadge badge={badge} />}
         </div>
 
         <PricingOptions
           pricingOptions={pricingOptions}
           billingCycle={billingCycle}
         />
+
         {description && (
-          <div className="mt-4 prose leading-loose dark:prose-invert">
+          <div className="prose text-slate-600 dark:prose-invert dark:text-slate-100/80">
             <MarkdownRenderer>{description}</MarkdownRenderer>
           </div>
         )}
+
+        <div
+          role="separator"
+          className="mt-4 w-full border-t border-slate-200/80 dark:border-slate-700/80 inverse:border-slate-700/80"
+        />
+
+        {cta && (
+          <Button className="mt-2" {...cta} size="lg" fullWidth>
+            {cta.label}
+          </Button>
+        )}
+
         <PricingFeatures
           features={features}
           planLimitations={planLimitations}
         />
-        {cta && (
-          <Button data={cta} size="lg" fullWidth>
-            {cta.label}
-          </Button>
-        )}
       </div>
     </div>
   );

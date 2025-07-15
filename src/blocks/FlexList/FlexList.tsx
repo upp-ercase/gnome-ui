@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { BlockType, ContentListType, GapType } from '../../types';
-import { ContentMapping } from '@/components/blocks/ContentMapping/ContentMapping';
+import { ContentMapping } from '../../blocks/ContentMapping/ContentMapping';
 
 export const FlexList: React.FC<{
   contentItems: Array<BlockType>;

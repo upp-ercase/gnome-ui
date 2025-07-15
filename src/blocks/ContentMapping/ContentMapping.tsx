@@ -32,7 +32,7 @@ export const ContentMapping: React.FC<{
   itemsPerRow?: number;
   animate?: boolean;
   data: BlockType;
-}> = ({ data, index, itemsPerRow = 1, animate = true }) => {
+}> = ({ data, index, itemsPerRow = 1, animate = false }) => {
   const { ref, inView, delay } = useIntersecting(index, itemsPerRow);
 
   const animationClass = classNames({

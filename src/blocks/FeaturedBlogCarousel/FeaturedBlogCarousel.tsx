@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper/types';
-import { FeaturedBlogPreview } from '@/components/blocks/FeaturedBlogPreview/FeaturedBlogPreview';
+import { FeaturedBlogPreview } from '../../blocks/FeaturedBlogPreview/FeaturedBlogPreview';
 import { BlogPostType } from '../../types';
 import 'swiper/css';
 import 'swiper/css/effect-fade';

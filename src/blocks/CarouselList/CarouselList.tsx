@@ -4,18 +4,18 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { BlockType, ContentListType, GapType } from '../../types';
-import { ContentMapping } from '@/components/blocks/ContentMapping/ContentMapping';
+import { ContentMapping } from '../../blocks/ContentMapping/ContentMapping';
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import '@/app/styles/custom-swiper.css';
+import '../../styles/custom-swiper.css';
 
 const columnBreakpoints = {
   320: [1, 1, 1, 1, 2, 2],
   640: [1, 1, 1, 2, 3, 3],
   768: [1, 1, 2, 2, 4, 4],
-  1024: [1, 2, 2, 3, 4, 5],
+  1024: [1, 2, 3, 3, 4, 5],
   1280: [1, 2, 3, 4, 5, 6],
 };
 

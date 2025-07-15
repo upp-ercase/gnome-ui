@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { usePricingOption } from '@/components/providers/PricingOptionProvider/PricingOptionProvider';
+import { usePricingOption } from '../../providers/PricingOptionProvider/PricingOptionProvider';
 import { PricingPlanType } from '../../types';
 
 function getUniqueBillingCycles(pricingPlans: Array<PricingPlanType>) {
@@ -82,7 +82,7 @@ export const PricingSwitcher: React.FC<PricingSwitcherProps> = ({ plans }) => {
   if (options.length <= 1) return null;
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-md mx-auto mb-12 lg:mb-14">
       {options.length === 2 ? (
         <div className="flex justify-center mx-auto">
           <ToggleSwitch

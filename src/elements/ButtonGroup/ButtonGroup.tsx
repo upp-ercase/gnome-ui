@@ -21,7 +21,7 @@ export const ButtonGroup: React.FC<{
       {data.map((button) => (
         <Button
           key={button.id}
-          data={button}
+          {...button}
           size={size ?? 'base'}
           fullWidth={fullWidth}
         />

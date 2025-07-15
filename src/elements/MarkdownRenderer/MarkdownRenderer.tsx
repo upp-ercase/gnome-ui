@@ -65,7 +65,7 @@ export const MarkdownRenderer: React.FC<{
                 {...props}
               >
                 <IoCheckmarkSharp
-                  className="absolute -left-6 -top-5 text-primary-500"
+                  className="absolute -left-6 text-primary-500"
                   size={25}
                 />
                 {children}

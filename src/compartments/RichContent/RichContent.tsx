@@ -114,10 +114,10 @@ export const RichContent: React.FC<{
     <div
       className={classNames(
         'rounded-theme',
-        getSpacingClasses('pt', paddingTop),
-        getSpacingClasses('pb', paddingBottom),
-        getSpacingClasses('pl', paddingLeft),
-        getSpacingClasses('pr', paddingRight),
+        getSpacingClasses('pt', paddingTop ?? 'none'),
+        getSpacingClasses('pb', paddingBottom ?? 'none'),
+        getSpacingClasses('pl', paddingLeft ?? 'none'),
+        getSpacingClasses('pr', paddingRight ?? 'none'),
         {
           'dark:bg-opacity-10': backgroundColor,
           'max-w-4xl flex flex-col gap-6': layout === 'stacked',

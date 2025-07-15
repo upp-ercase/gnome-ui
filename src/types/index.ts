@@ -1,8 +1,8 @@
 export type MediaType = {
   id?: string;
   url: string;
-  title: string;
-  description: string | null;
+  title?: string;
+  description?: string | null;
   width: number;
   height: number;
   contentType?: string;
@@ -162,20 +162,20 @@ export type RichContentType = {
   body: string | null;
   ctas: Array<ButtonType> | null;
   titleFontSize: TitleFontSizeType;
-  layout: 'stacked' | 'cta-side' | 'body-cta-side' | null;
-  alignment: AlignmentType;
-  paddingTop: PaddingType;
-  paddingLeft: PaddingType;
-  paddingBottom: PaddingType;
-  paddingRight: PaddingType;
-  backgroundColor: string | null;
-  contentType: 'richcontent';
+  layout?: 'stacked' | 'cta-side' | 'body-cta-side' | null;
+  alignment?: AlignmentType;
+  paddingTop?: PaddingType;
+  paddingLeft?: PaddingType;
+  paddingBottom?: PaddingType;
+  paddingRight?: PaddingType;
+  backgroundColor?: string | null;
+  contentType?: 'richcontent';
 };
 
 export type FeaturedMediaType = {
   file: MediaType;
   priority: boolean;
-  contentType: 'featuredmedia';
+  contentType?: 'featuredmedia';
 };
 
 export type SmartSectionLayoutType =
@@ -196,22 +196,22 @@ export type PaddingType =
   | '3xl';
 
 export type SmartSectionType = {
-  id: string;
-  htmlid: string | null;
+  id?: string;
+  htmlid?: string | null;
   content: Array<
     RichContentType | FeaturedMediaType | ContentListType | FormType
   >;
   layout: SmartSectionLayoutType;
   gap: GapType;
-  backgroundColor: string | null;
-  backgroundImage: MediaType | null;
-  enableParallaxEffect: boolean;
-  inverse: boolean;
-  sectionSeparator: boolean;
+  backgroundColor?: string | null;
+  backgroundImage?: MediaType | null;
+  enableParallaxEffect?: boolean;
+  inverse?: boolean;
+  sectionSeparator?: boolean;
   paddingTop: PaddingType;
   paddingBottom: PaddingType;
   width: 'full' | 'standard' | 'narrow';
-  contentType: 'smartsection';
+  contentType?: 'smartsection';
 };
 
 export type StatisticsType = {
@@ -242,17 +242,19 @@ export type FlexibleContentType = {
   eyebrow: string | null;
   title: string | null;
   body: string | null;
-  buttons: Array<ButtonType>;
-  redirectUrl?: string | null;
   media: Array<MediaType>;
-  alignment: AlignmentType;
+  buttons: Array<ButtonType>;
+  alignment?: AlignmentType;
   layout?: 'horizontal' | 'vertical' | null;
+  redirectUrl?: string | null;
   contentType?: 'flexiblecontent';
 };
 
 export type PricingOptionType = {
   billingCycle: 'Monthly' | 'Yearly' | 'One-Time';
-  price: string;
+  standardPrice: number;
+  salePrice: number | null;
+  currency: 'USD' | 'EUR';
   priceSuffix: string | null;
 };
 
@@ -261,12 +263,12 @@ export type PricingPlanType = {
   planName: string;
   pricingOptions: Array<PricingOptionType>;
   badge: string | null;
-  featured?: boolean;
+  featured: boolean;
   description: string | null;
   features: Array<string>;
   planLimitations: Array<string>;
   cta: ButtonType | null;
-  alignment?: AlignmentType;
+  alignment: AlignmentType;
   contentType?: 'pricingplan';
 };
 
@@ -290,17 +292,17 @@ export type BlockType =
 export type GapType = 'none' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl';
 
 export type ContentListType = {
-  id: string;
+  id?: string;
   contentItems: Array<BlockType>;
   ctas: Array<ButtonType>;
   columns: 1 | 2 | 3 | 4 | 5 | 6 | null;
   gap: GapType;
   layout: 'carousel' | 'masonry' | 'grid' | 'flex' | null;
-  contentType: 'contentlist';
+  contentType?: 'contentlist';
 };
 
 export type FormFieldType = {
-  id: string;
+  id?: string;
   label: string;
   fieldType:
     | 'text'
@@ -320,20 +322,30 @@ export type FormFieldType = {
 };
 
 export type FormType = {
-  id: string;
-  internalName: string;
+  id?: string;
+  internalName?: string;
   fields: Array<FormFieldType>;
   submitButtonLabel: string | null;
   submitButtonVariant: ButtonVariant | null;
   submitButtonPosition: 'bottom' | 'right';
   disclaimer: string | null;
   formType: string;
-  dateFormat: 'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY/MM/DD';
-  successMessage: string | null;
-  errorMessage: string | null;
-  contentType: 'form';
+  dateFormat?: 'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY/MM/DD';
+  successMessage?: string | null;
+  errorMessage?: string | null;
+  contentType?: 'form';
 };
 
 export type FormValues = {
   [key: string]: string | Date;
 };
+
+export type FieldTypeType =
+  | 'text'
+  | 'email'
+  | 'tel'
+  | 'number'
+  | 'date'
+  | 'datetime'
+  | 'textarea'
+  | 'select';

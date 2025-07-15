@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { BlogPostType, MediaAspectRatioType } from '../../types';
 import { MediaItem } from '../../elements/MediaItem/MediaItem';
 import { MarkdownRenderer } from '../../elements/MarkdownRenderer/MarkdownRenderer';
-import { Author } from '@/components/blocks/Author/Author';
+import { Author } from '../../blocks/Author/Author';
 
 interface BlogPreviewProps {
   data: BlogPostType;

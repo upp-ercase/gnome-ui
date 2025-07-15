@@ -76,7 +76,7 @@ export const Testimonial: React.FC<{
         {authorTitle && (
           <div
             className={classNames(
-              'text-smd text-slate-600 dark:text-slate-100/80 inverse:text-slate-100/80',
+              'text-smd text-slate-500 dark:text-slate-100/60 inverse:text-slate-100/80',
             )}
           >
             {authorTitle}

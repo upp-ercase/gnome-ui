@@ -16,7 +16,6 @@ type Story = StoryObj<typeof Eyebrow>;
 
 export const Default: Story = {
   args: {
-    content:
-      'WEB COMPONENTS',
+    content: 'WEB COMPONENTS',
   },
 };
