@@ -8,15 +8,4 @@ module.exports = {
     './.storybook/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.stories.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {
-    container: {
-      center: true,
-      padding: 'var(--container-horizontal-padding)',
-    },
-  },
-  plugins: [
-    plugin(function ({ addVariant }) {
-      addVariant('inverse', '.inverse &');
-    }),
-  ],
 };
