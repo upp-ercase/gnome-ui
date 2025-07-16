@@ -24,7 +24,7 @@ const ToggleSwitch: React.FC<{
 
   return (
     <div className="flex items-center gap-x-4">
-      <span className="dark:text-slate-100">{options[0]}</span>
+      <span className="dark:text-slate-100 inverse:text-slate-100">{options[0]}</span>
       <div
         className="relative w-16 h-8 bg-primary-500 rounded-full cursor-pointer"
         onClick={handleToggle}
@@ -42,7 +42,7 @@ const ToggleSwitch: React.FC<{
           )}
         />
       </div>
-      <span className="dark:text-slate-100">{options[1]}</span>
+      <span className="dark:text-slate-100 inverse:text-slate-100">{options[1]}</span>
     </div>
   );
 };

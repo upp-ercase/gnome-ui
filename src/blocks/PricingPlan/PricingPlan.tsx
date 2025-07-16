@@ -10,7 +10,7 @@ import { getCurrencySymbol } from '../../utils/currency';
 const PricingBadge: React.FC<{ badge?: string }> = ({ badge }) => {
   if (!badge) return null;
   return (
-    <div className="px-2 py-1 rounded-theme text-xs font-medium tracking-wider text-primary-600 bg-primary-100 dark:text-primary-100 dark:bg-primary-600">
+    <div className="ml-auto px-2 py-1 rounded-theme text-xs font-medium tracking-wider text-primary-600 bg-primary-100 dark:text-primary-100 dark:bg-primary-600">
       {badge}
     </div>
   );
@@ -27,20 +27,24 @@ const PricingOptions: React.FC<{
           key={idx}
           className={classNames({ hidden: billingCycle !== item.billingCycle })}
         >
-          <div className="font-bold font-heading text-lg-heading dark:text-slate-100">
+          <div className="font-heading text-lg-heading dark:text-slate-100">
             <span
               className={classNames({
                 'opacity-30 line-through': item.salePrice,
               })}
             >
               {getCurrencySymbol(item.currency)}
-              {item.standardPrice}
+              <span className="font-semibold">
+                {item.standardPrice}
+              </span>
             </span>
             {item.salePrice && (
-              <span className="">
+              <>
                 {getCurrencySymbol(item.currency)}
-                {item.salePrice}
-              </span>
+                <span className="font-semibold">
+                  {item.salePrice}
+                </span>
+              </>
             )}
           </div>
           {item.priceSuffix && (
@@ -61,12 +65,12 @@ const PricingFeatures: React.FC<{
   if (!features?.length && !planLimitations?.length) return null;
 
   return (
-    <ul className="my-2 lg:my-4 pl-8 flex flex-col gap-1 prose dark:prose-invert">
+    <ul className="my-2 lg:my-4 pl-6 flex flex-col gap-1 prose dark:prose-invert">
       {features?.map((feature, idx) => (
         <li key={idx} className="relative list-none">
           <IoCheckmarkSharp
-            className="absolute -left-8 text-green-600 dark:text-green-400"
-            size={25}
+            className="absolute top-1 -left-6 text-green-600 dark:text-green-400"
+            size={20}
           />
           {feature}
         </li>
@@ -74,8 +78,8 @@ const PricingFeatures: React.FC<{
       {planLimitations?.map((limitation, idx) => (
         <li key={idx} className="relative list-none opacity-30">
           <RxCross2
-            className="absolute -left-8 text-green-600 dark:text-green-400"
-            size={25}
+            className="absolute top-1 -left-6 text-green-600 dark:text-green-400"
+            size={20}
           />
           {limitation}
         </li>
@@ -106,7 +110,7 @@ export const PricingPlan: React.FC<{ data: PricingPlanType }> = ({ data }) => {
         {
           'border-slate-100 dark:border-slate-800/80 inverse:border-slate-800/80':
             !featured,
-          'border-primary-600 dark:border-primary-500 inverse:border-primary-500':
+          'border-2 border-primary-600 dark:border-primary-500 inverse:border-primary-500':
             featured,
         },
       )}
