@@ -12,7 +12,7 @@ import { CustomForm } from '../../compartments/CustomForm/CustomForm';
 import { RichContent } from '../../compartments/RichContent/RichContent';
 import { ContentList } from '../../compartments/ContentList/ContentList';
 import { FeaturedMedia } from '../../compartments/FeaturedMedia/FeaturedMedia';
-import { getSpacingClasses } from '../../utils';
+import { convertHextoRgb, getSpacingClasses } from '../../utils';
 
 export const SmartSection: React.FC<{
   className?: string;
@@ -38,10 +38,7 @@ export const SmartSection: React.FC<{
     if (!backgroundColor && !backgroundImage) return {};
     return {
       backgroundColor: backgroundColor
-        ? `rgba(${parseInt(backgroundColor.slice(1, 3), 16)}, 
-                ${parseInt(backgroundColor.slice(3, 5), 16)}, 
-                ${parseInt(backgroundColor.slice(5, 7), 16)}, 
-                var(--tw-bg-opacity))`
+        ? `rgba(${convertHextoRgb(backgroundColor)})`
         : 'none',
       backgroundImage: backgroundImage ? `url(${backgroundImage.url})` : 'none',
     };
@@ -60,13 +57,13 @@ export const SmartSection: React.FC<{
         'gap-y-6 md:gap-y-7.5 lg:gap-y-9':
           (gap === 'lg' || gap === 'xl' || gap === '2xl') &&
           ['Classic', 'Classic R'].includes(layout),
-        'lg:grid-cols-[auto,auto] items-center':
+        'lg:grid-cols-[auto_auto] items-center':
           ['Classic', 'Classic R'].includes(layout) && content.length === 2,
-        'lg:grid-cols-2 lg:grid-rows-[auto,auto] items-sketch':
+        'lg:grid-cols-2 lg:grid-rows-[auto_auto] items-sketch':
           ['Classic', 'Classic R'].includes(layout) && content.length > 2,
         [`grid-rows-${content.length} items-center`]: layout === 'Rows',
         [`lg:grid-cols-${content.length} items-center`]: layout === 'Columns',
-        [`lg:grid-cols-${content.length - 1} lg:grid-rows-[auto,auto] items-center`]:
+        [`lg:grid-cols-${content.length - 1} lg:grid-rows-[auto_auto] items-center`]:
           layout === 'Banner',
       },
     );
@@ -139,7 +136,6 @@ export const SmartSection: React.FC<{
           'max-w-5xl mx-auto px-4': width === 'narrow',
         })}
       >
-        {/* {paddingTop} {paddingBottom} {gap} */}
         <div className={getGridClasses()}>{renderContentItems()}</div>
       </div>
       {sectionSeparator && <SectionSeparator />}

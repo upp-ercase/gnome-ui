@@ -6,7 +6,7 @@ const meta = {
   component: SmartSection,
   tags: ['autodocs'],
   parameters: {
-    layout: 'centered',
+    layout: 'full',
   },
 } satisfies Meta<typeof SmartSection>;
 
@@ -461,8 +461,9 @@ export const Testimonials2: Story = {
       gap: 'lg',
       paddingTop: 'xl',
       paddingBottom: 'xl',
-      backgroundColor: '#f4f5fa',
+      backgroundColor: '#432dd7',
       width: 'standard',
+      inverse: true,
     },
   },
 };
@@ -509,7 +510,7 @@ export const Statistics: Story = {
       gap: 'lg',
       paddingTop: 'lg',
       paddingBottom: 'lg',
-      backgroundColor: '#f4f5fa',
+      backgroundColor: null,
       sectionSeparator: true,
       width: 'standard',
     },
@@ -559,8 +560,8 @@ export const FAQ: Story = {
       ],
       layout: 'Rows',
       gap: 'lg',
-      paddingTop: 'xl',
-      paddingBottom: 'xl',
+      paddingTop: '2xl',
+      paddingBottom: '2xl',
       backgroundColor: '#f4f5fa',
       width: 'standard',
     },
@@ -571,15 +572,15 @@ export const HowItWorks: Story = {
   args: {
     data: {
       content: [
-        // {
-        //   eyebrow: "",
-        //   title: "# __How it Works?__",
-        //   body: "With lots of unique blocks, you can easily build a page without coding. Build your next consultancy website within few minutes.",
-        //   ctas: [],
-        //   alignment: 'center',
-        //   titleFontSize: "base",
-        //   contentType: "richcontent",
-        // },
+        {
+          eyebrow: "",
+          title: "# __How it Works?__",
+          body: "With lots of unique blocks, you can easily build a page without coding. Build your next consultancy website within few minutes.",
+          ctas: [],
+          alignment: 'center',
+          titleFontSize: "base",
+          contentType: "richcontent",
+        },
         {
           file: {
             url: 'https://images.ctfassets.net/ehmycbmc25mu/2DWCNIOUEQJENahOzvpKdC/7929b098ceed2a8016c414d671aad2b4/management_settings.webp',
@@ -596,7 +597,7 @@ export const HowItWorks: Story = {
             {
               eyebrow: '',
               title: '### __Create a project__',
-              body: 'With lots of unique blocks, you can easily build a page without coding.',
+              body: 'With lots of unique blocks, you can easily build a page without coding. Build your next website within a few minutes.',
               media: [
                 {
                   url: 'https://images.ctfassets.net/ehmycbmc25mu/5XPaB9kgTyy56kRs4YXZ9M/ae4cd65e8582e1f9713e23d5256e58bb/1.svg',
@@ -613,7 +614,7 @@ export const HowItWorks: Story = {
             {
               eyebrow: '',
               title: '### __Assign related people__',
-              body: 'With lots of unique blocks, you can easily build a page without coding.',
+              body: 'With lots of unique blocks, you can easily build a page without coding. Build your next website within a few minutes.',
               media: [
                 {
                   url: 'https://images.ctfassets.net/ehmycbmc25mu/742XK3U4WZss9sx76AUTzD/381290530cfdd8b7e9794ab4cbd2b778/2.svg',
@@ -630,7 +631,7 @@ export const HowItWorks: Story = {
             {
               eyebrow: '',
               title: '### __Make it done on-time__',
-              body: 'With lots of unique blocks, you can easily build a page without coding.',
+              body: 'With lots of unique blocks, you can easily build a page without coding. Build your next website within a few minutes.',
               media: [
                 {
                   url: 'https://images.ctfassets.net/ehmycbmc25mu/6VlKRgERvKgrzmBJoUU32y/c02ad412c0d336704621e215d15ddf5e/3.svg',
@@ -651,12 +652,13 @@ export const HowItWorks: Story = {
           layout: 'grid',
           contentType: 'contentlist',
         },
+        
       ],
       layout: 'Banner',
       gap: 'lg',
       paddingTop: 'xl',
       paddingBottom: 'xl',
-      backgroundColor: '#f1f5f9',
+      backgroundColor: null,
       width: 'standard',
     },
   },
@@ -792,7 +794,7 @@ export const Pricing: Story = {
           ctas: [],
           columns: 3,
           gap: 'none',
-          layout: 'grid',
+          layout: 'flex',
           contentType: 'contentlist',
         },
       ],
