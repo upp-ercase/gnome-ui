@@ -34,16 +34,12 @@ const PricingOptions: React.FC<{
               })}
             >
               {getCurrencySymbol(item.currency)}
-              <span className="font-semibold">
-                {item.standardPrice}
-              </span>
+              <span className="font-semibold">{item.standardPrice}</span>
             </span>
             {item.salePrice && (
               <>
                 {getCurrencySymbol(item.currency)}
-                <span className="font-semibold">
-                  {item.salePrice}
-                </span>
+                <span className="font-semibold">{item.salePrice}</span>
               </>
             )}
           </div>

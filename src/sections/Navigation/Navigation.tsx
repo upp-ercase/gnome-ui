@@ -42,7 +42,6 @@ export const Navigation: React.FC<{
   );
 };
 
-
 const Header: React.FC<{ data: NavigationType }> = ({ data }) => {
   const sticky = useStickyHeaderOnScrollDown();
   if (data.layout === 'minimal') {

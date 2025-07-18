@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FlexibleContent } from './FlexibleContent';
-import { FlexibleContentType } from '../../types'
+import { FlexibleContentType } from '../../types';
 
 const meta = {
   title: 'Blocks/FlexibleContent',
@@ -8,7 +8,7 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className='max-w-md'>
+      <div className="max-w-md">
         <Story />
       </div>
     ),
@@ -38,11 +38,11 @@ const mockContent = {
   alignment: 'start',
   layout: 'vertical',
   contentType: 'flexiblecontent',
-} as FlexibleContentType
+} as FlexibleContentType;
 
 export const Default: Story = {
   args: {
-    data: mockContent
+    data: mockContent,
   },
 };
 
@@ -50,8 +50,8 @@ export const Horizontal: Story = {
   args: {
     data: {
       ...mockContent,
-      layout: 'horizontal'
-    }
+      layout: 'horizontal',
+    },
   },
 };
 
@@ -59,8 +59,8 @@ export const Center: Story = {
   args: {
     data: {
       ...mockContent,
-      alignment: 'center'
-    }
+      alignment: 'center',
+    },
   },
 };
 
@@ -108,7 +108,7 @@ export const WithImageCarousel: Story = {
           description: '',
           width: 300,
           height: 200,
-          contentType: 'image/jpeg'
+          contentType: 'image/jpeg',
         },
         {
           url: 'https://images.unsplash.com/photo-1606474226448-4aa808468efc?q=100&w=300&h=200&auto=format&fit=crop',
@@ -116,7 +116,7 @@ export const WithImageCarousel: Story = {
           description: '',
           width: 300,
           height: 200,
-          contentType: 'image/jpeg'
+          contentType: 'image/jpeg',
         },
         {
           url: 'https://images.unsplash.com/photo-1606474226448-4aa808468efc?q=100&w=300&h=200&auto=format&fit=crop',
@@ -124,12 +124,12 @@ export const WithImageCarousel: Story = {
           description: '',
           width: 300,
           height: 200,
-          contentType: 'image/jpeg'
-        }
-      ]
+          contentType: 'image/jpeg',
+        },
+      ],
     },
   },
-}
+};
 
 export const WithVideo: Story = {
   args: {
@@ -150,9 +150,9 @@ export const WithVideo: Story = {
           description: '',
           width: 300,
           height: 200,
-          contentType: 'video/mp4'
-        }
-      ]
+          contentType: 'video/mp4',
+        },
+      ],
     },
   },
 };
@@ -169,7 +169,7 @@ export const WithoutMedia: Story = {
           variant: 'neutral',
         },
       ],
-      media: []
+      media: [],
     },
   },
 };

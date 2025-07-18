@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { MarkdownRenderer } from '../../elements/MarkdownRenderer/MarkdownRenderer';
-import { MenuLinkItem } from '../../elements/MenuLinkItem/MenuLinkItem.tsx';
+import { MenuLinkItem } from '../../elements/MenuLinkItem/MenuLinkItem';
 import { Logo } from '../../elements/Logo/Logo';
 import { FooterType } from '../../types';
 import { convertHextoRgb } from '../../utils';
@@ -14,9 +14,7 @@ const getBackgroundStyle = (
   image?: { url: string } | null,
 ) => {
   return {
-    backgroundColor: color
-      ? `rgba(${convertHextoRgb(color)})`
-      : 'none',
+    backgroundColor: color ? `rgba(${convertHextoRgb(color)})` : 'none',
     backgroundImage: image ? `url(${image.url}), url('/fallback.png')` : 'none',
   };
 };

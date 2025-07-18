@@ -41,11 +41,11 @@ export type LinkType = {
 };
 
 export interface SubmenuType {
-  id: string;
+  id?: string;
   label: string;
   menuItems: Array<LinkType | SubmenuType>;
-  featuredContent: Array<BlogPostType | PageType>;
-  layout: 'dropdown' | 'mega';
+  featuredContent?: Array<BlogPostType | PageType>;
+  layout?: 'dropdown' | 'mega';
   contentType: 'submenu';
 }
 
