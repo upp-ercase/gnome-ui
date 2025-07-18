@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Testimonial } from './Testimonial';
+import { TestimonialType } from '../../types';
 
 const meta = {
   title: 'Blocks/Testimonial',
@@ -14,50 +15,37 @@ export default meta;
 
 type Story = StoryObj<typeof Testimonial>;
 
+const mockTestimonial = {
+  content:
+    '“You made it so simple. My new site is so much faster and easier to work with than my old site.”',
+  authorImage: {
+    id: '1',
+    url: 'https://randomuser.me/api/portraits/men/34.jpg',
+    title: 'Ian Klein',
+    description: 'Profile picture of Ian Klein',
+    width: 90,
+    height: 90,
+    contentType: 'image/jpeg',
+  },
+  authorName: 'Ian Klein',
+  authorTitle: 'Digital Marketer',
+  rating: null,
+  alignment: 'start',
+  layout: 'horizontal',
+  fontSize: 'base',
+} as TestimonialType;
+
 export const Horizontal: Story = {
   args: {
-    data: {
-      content:
-        '__“You made it so simple. My new site is so much faster and easier to work with than my old site.”__',
-      authorImage: {
-        id: '1',
-        url: 'https://randomuser.me/api/portraits/men/34.jpg',
-        title: 'Ian Klein',
-        description: 'Profile picture of Ian Klein',
-        width: 128,
-        height: 128,
-        contentType: 'image/jpeg',
-      },
-      authorName: 'Ian Klein',
-      authorTitle: 'Digital Marketer',
-      rating: 5,
-      alignment: 'start',
-      layout: 'horizontal',
-      fontSize: 'base',
-    },
+    data: mockTestimonial,
   },
 };
 
 export const Vertical: Story = {
   args: {
     data: {
-      content:
-        '__“You made it so simple. My new site is so much faster and easier to work with than my old site.”__',
-      authorImage: {
-        id: '1',
-        url: 'https://randomuser.me/api/portraits/men/34.jpg',
-        title: 'Ian Klein',
-        description: 'Profile picture of Ian Klein',
-        width: 128,
-        height: 128,
-        contentType: 'image/jpeg',
-      },
-      authorName: 'Ian Klein',
-      authorTitle: 'Digital Marketer',
-      rating: 5,
-      alignment: 'start',
+      ...mockTestimonial,
       layout: 'vertical',
-      fontSize: 'base',
     },
   },
 };
@@ -65,46 +53,84 @@ export const Vertical: Story = {
 export const Center: Story = {
   args: {
     data: {
-      content:
-        '__“You made it so simple. My new site is so much faster and easier to work with than my old site.”__',
-      authorImage: {
-        id: '1',
-        url: 'https://randomuser.me/api/portraits/men/34.jpg',
-        title: 'Ian Klein',
-        description: 'Profile picture of Ian Klein',
-        width: 128,
-        height: 128,
-        contentType: 'image/jpeg',
-      },
-      authorName: 'Ian Klein',
-      authorTitle: 'Digital Marketer',
-      rating: 5,
-      alignment: 'center',
+      ...mockTestimonial,
       layout: 'vertical',
-      fontSize: 'base',
+      alignment: 'center',
     },
   },
 };
 
-export const NoRating: Story = {
+export const WithRating: Story = {
   args: {
     data: {
+      ...mockTestimonial,
+      rating: 5,
+    },
+  },
+};
+
+export const WithHeading: Story = {
+  args: {
+    data: {
+      ...mockTestimonial,
       content:
-        '__“You made it so simple. My new site is so much faster and easier to work with than my old site.”__',
+        '### __Simply the best!__ \n\nYou made it so simple. My new site is so much faster and easier to work with than my old site.',
+    },
+  },
+};
+
+export const FontSizeLarge: Story = {
+  args: {
+    data: {
+      ...mockTestimonial,
+      fontSize: 'lg',
       authorImage: {
         id: '1',
         url: 'https://randomuser.me/api/portraits/men/34.jpg',
         title: 'Ian Klein',
         description: 'Profile picture of Ian Klein',
-        width: 128,
-        height: 128,
+        width: 130,
+        height: 130,
         contentType: 'image/jpeg',
       },
-      authorName: 'Ian Klein',
-      authorTitle: 'Digital Marketer',
-      alignment: 'start',
-      layout: 'horizontal',
-      fontSize: 'base',
+    },
+  },
+};
+
+export const FontSizeXL: Story = {
+  args: {
+    data: {
+      ...mockTestimonial,
+      fontSize: 'xl',
+      authorImage: {
+        id: '1',
+        url: 'https://randomuser.me/api/portraits/men/34.jpg',
+        title: 'Ian Klein',
+        description: 'Profile picture of Ian Klein',
+        width: 130,
+        height: 130,
+        contentType: 'image/jpeg',
+      },
+    },
+  },
+};
+
+export const FontBold: Story = {
+  args: {
+    data: {
+      ...mockTestimonial,
+      fontSize: 'xl',
+      authorImage: {
+        id: '1',
+        url: 'https://randomuser.me/api/portraits/men/34.jpg',
+        title: 'Ian Klein',
+        description: 'Profile picture of Ian Klein',
+        width: 130,
+        height: 130,
+        contentType: 'image/jpeg',
+      },
+      content:
+        '__“You made it so simple. My new site is so much faster and easier to work with than my old site.”__',
     },
   },
 };
