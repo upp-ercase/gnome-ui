@@ -36,7 +36,7 @@ export const Expert: React.FC<{
       </div>
       <div
         className={classNames(
-          'w-full px-4 pt-3 pb-6 flex flex-col rounded-b-theme',
+          'w-full pt-3 pb-6 flex flex-col rounded-b-theme',
           {
             'text-center': alignment === 'center',
             'text-end': alignment === 'end',
