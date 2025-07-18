@@ -23,7 +23,7 @@ export const QnA: React.FC<{ data: QAType }> = ({ data }) => {
   };
 
   return (
-    <div className="rounded-theme bg-white dark:bg-slate-800/80 dark:backdrop-blur-xl">
+    <div className="max-w-3xl rounded-theme bg-white dark:bg-slate-800/80 dark:backdrop-blur-xl">
       <button
         className="p-4 lg:p-6 w-full flex justify-between items-baseline gap-10"
         onClick={toggleCollapsed}
